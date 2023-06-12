@@ -21,9 +21,22 @@ def paths_to_project_directories():
     return paths
 
 
+def paths_to_project_org_files(project_dirs):
+    org_files = []
+    for project_dir in project_dirs:
+        dir_entries = os.listdir(project_dir)
+        dir_entries = list(filter(lambda f: f.endswith(".org"), dir_entries))
+        for project_org_file in dir_entries:
+            path = Path(project_dir, project_org_file)
+            org_files.append(path)
+    return org_files
+
+
 def main():
     project_dirs = paths_to_project_directories()
-    for p in project_dirs:
+    project_org_files = paths_to_project_org_files(project_dirs)
+    
+    for p in project_org_files:
         print(p)
 
 
