@@ -28,7 +28,7 @@ def write_agenda_files_to_doom_config(project_org_files):
     lines += MARKER_END
     lines += lines_post_agenda
 
-    with open("/Users/vinc/.config/doom/config.el2", 'w') as fp:
+    with open("/Users/vinc/.config/doom/config.el", 'w') as fp:
         fp.write(lines)
 
 
