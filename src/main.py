@@ -1,3 +1,5 @@
+from termcolor import colored
+
 from config import DOOM_CONFIG
 from config import MARKER_START, MARKER_END
 from paths import paths_to_project_directories
@@ -20,6 +22,7 @@ def write_agenda_files_to_doom_config(project_org_files):
     lines_post_agenda = split[1].split(MARKER_END)[1]
     
     agenda_lines = [fmt_agenda_line(f) for f in project_org_files]
+    nr_of_agenda_lines = len(agenda_lines)
     agenda_lines = "".join(agenda_lines)
 
     lines = lines_pre_agenda
@@ -30,6 +33,8 @@ def write_agenda_files_to_doom_config(project_org_files):
 
     with open("/Users/vinc/.config/doom/config.el", 'w') as fp:
         fp.write(lines)
+    msg = f"Added {nr_of_agenda_lines} agenda files to \"{DOOM_CONFIG}\""
+    print(colored(msg, "green"))
 
 
 def main():
