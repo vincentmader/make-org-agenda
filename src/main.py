@@ -31,7 +31,7 @@ def write_agenda_files_to_doom_config(project_org_files):
     lines += MARKER_END
     lines += lines_post_agenda
 
-    with open("/Users/vinc/.config/doom/config.el", 'w') as fp:
+    with open(DOOM_CONFIG, 'w') as fp:
         fp.write(lines)
     msg = f"Added {nr_of_agenda_lines} agenda files to \"{DOOM_CONFIG}\""
     print(colored(msg, "green"))
