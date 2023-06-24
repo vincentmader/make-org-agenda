@@ -9,7 +9,7 @@ from paths import paths_to_project_org_files
 def fmt_agenda_line(org_file):
     org_file = str(org_file)
     org_file = org_file.replace("\"", "\\\"")
-    org_file = f"       \"{org_file}\"\n"
+    org_file = f"    \"{org_file}\"\n"
     return org_file
 
 
